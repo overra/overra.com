@@ -1,0 +1,95 @@
+import diggingImg from './digging.png'
+
+export const article = {
+  author: 'Adam Snodgrass',
+  date: '2022-10-25',
+  title: 'Digging into Stable Diffusion and Other Generative Models',
+  description:
+    "It's been a busy year for AI geenrated art and media. Let's take a look at some AI tools to generate text, images, audio, and video.",
+}
+
+export const metadata = {
+  title: 'Digging into Stable Diffusion and Other Generative Models',
+  description:
+    "It's been a busy year for AI geenrated art and media. Let's take a look at some AI tools to generate text, images, audio, and video.",
+}
+
+export default (props) => <Article article={article} {...props} />
+
+Before I dive in, I should mention you'll need a high-end GPU with a lot of memory
+to train the model on your own data or generate images larger than 512x512. On my
+machine, it takes the full 24GB VRAM to train. Some projects claim to work with as
+low as 4GB VRAM required, and some even support running on Apple Silicon.
+
+If you don&apos;t have a machine that can handle this, you will find links to various free
+and paid tools for AI art below.
+
+<Image src={diggingImg.src} width={600} height={400} />
+
+<div style={{ position: 'relative', paddingTop: '100%' }}>
+  <iframe
+    src="https://customer-mrd3jjp2vidouwqo.cloudflarestream.com/b5b5e3907219674915a6a379fb037ecc/iframe?poster=https%3A%2F%2Fcustomer-mrd3jjp2vidouwqo.cloudflarestream.com%2Fb5b5e3907219674915a6a379fb037ecc%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+    style={{
+      border: 'none',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      height: '100%',
+      width: '100%',
+    }}
+    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+    allowFullScreen={true}
+  ></iframe>
+</div>
+
+The visuals above were made with Stable Diffusion (SD), an open-source AI text-to-image (txt2img) model created by a company called [Stability AI][stability-ai] (SAI). I&apos;m using a project referred to as [AUTOMATIC1111's repo][automatic-repo] in [r/stablediffusion][sd-subreddit]. This project supports 3rd party python scripts. Deforum created a [script for AUTOMATIC1111][deforum-for-automatic] to create animations with image-to-image (img2img) iterations and image manipulation with keyframes and math.
+
+Another SD project called [Dreambooth][joepenna-dreambooth] gives you the ability to extend the model by training it on your own images.
+
+The audio in the video was generated with [Mubert Text to Music][mubert-text-to-music]. This project is a little different. It uses a text classifier to convert a prompt into tags (genres and music styles), then makes a request to the Mubert API to generate music.
+
+## Image generation:
+
+- [DALL-E][dalle] 2 by Open AI
+- [Midjourney][midjourney]
+- [DreamStudio][dreamstudio] by Stability AI (SD)
+  - Recently announced the development of DreamStudio Pro, which will have audio/video/image generation models with a web interface for doing 3D animation
+
+## Audio Generation:
+
+- [Mubert][mubert] music generation
+- [Fakeyou][fakeyou] TTS - lots of TV/character voice models
+- [Uberduck][uberduck] TTS - lots of TV/character voice models
+- [Coqui][coqui] TTS - clone voices
+
+## AI/ML model communities — find and try models online
+
+- [Replicate][replicate]
+- [Huggingface][huggingface]
+
+## Animation Tools
+
+These are harder to explain with short descriptions.
+
+- [TPSMMW][tpsmmw] — animate a single image with a face/body driver video
+- [EBSynth][ebsynth] uses input keyframes to style video
+
+There’s a lot more out there, and things are moving fast.
+
+[dalle]: https://openai.com/dall-e-2/
+[midjourney]: https://midjourney.com/
+[dreamstudio]: https://beta.dreamstudio.ai/
+[mubert]: https://mubert.com/
+[fakeyou]: https://fakeyou.com/
+[uberduck]: https://uberduck.ai/
+[coqui]: https://coqui.ai/
+[replicate]: https://replicate.ai/
+[huggingface]: https://huggingface.co/
+[tpsmmw]: https://github.com/Fictiverse/Thin-Plate-Spline-Motion-Model-Windows
+[ebsynth]: https://ebsynth.com/
+[stability-ai]: https://stability.ai/
+[automatic-repo]: https://github.com/AUTOMATIC1111/stable-diffusion-webui
+[sd-subreddit]: https://www.reddit.com/r/stablediffusion/
+[deforum-for-automatic]: https://github.com/deforum-art/deforum-for-automatic1111-webui
+[joepenna-dreambooth]: https://github.com/JoePenna/Dreambooth-Stable-Diffusion/
+[mubert-text-to-music]: https://github.com/MubertAI/Mubert-Text-to-Music
