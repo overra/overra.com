@@ -29,9 +29,12 @@ export async function GET(req: Request) {
   })
 
   let articleIds = require
+    // @ts-expect-error
     .context('../(blog)', true, /\/page\.mdx$/)
     .keys()
+    // @ts-expect-error
     .filter((key) => key.startsWith('./'))
+    // @ts-expect-error
     .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''))
 
   for (let id of articleIds) {
